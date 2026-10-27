@@ -23,8 +23,9 @@ const SOCIAL_ICONS: Record<string, IconType> = {
   GitHub: FaGithub,
 };
 
-const SOCIAL_PROFILES = VERIFIED_SOCIAL_PROFILES.map((profile) => ({
+const SOCIAL_PROFILES: Array<{ label: string; url: string | null; icon: IconType }> = VERIFIED_SOCIAL_PROFILES.map((profile) => ({
   ...profile,
+  url: profile.url || null,
   icon: SOCIAL_ICONS[profile.label],
 }));
 

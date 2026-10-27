@@ -1,4 +1,5 @@
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || null;
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://hilmanapriadi.cv";
 
 export const SITE_NAME = "The Curious Oddity";
 export const PERSON_NAME = "Hilman Apriadi";

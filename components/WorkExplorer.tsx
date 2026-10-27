@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 import { getProjectsByCategory, projectCategories } from "@/lib/projects";
 import { ProjectCard } from "@/components/Projects";
@@ -13,12 +14,12 @@ export default function WorkExplorer() {
     <section className="px-5 py-20 sm:px-8 sm:py-24 lg:px-12">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 max-w-2xl sm:mb-16">
-          <a
+          <Link
             href="/"
             className="mb-8 inline-flex font-mono text-xs uppercase tracking-widest text-void-black/45 transition-colors hover:text-void-black"
           >
             ← Back home
-          </a>
+          </Link>
           <p className="mb-3 font-mono text-xs uppercase tracking-widest text-void-black/40">
             Project Archive
           </p>
