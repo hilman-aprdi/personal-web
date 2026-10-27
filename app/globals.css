@@ -1,26 +1,102 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ── Design Tokens ──────────────────────────────────────────────────────── */
+
+@theme {
+  /* Brand colors */
+  --color-paper-cream: #f7f3ea;
+  --color-void-black:  #171717;
+  --color-acid-lime:   #c6ff00;
+  --color-dream-blue:  #a9d2d8;
+
+  /* Stone shades used in hero artwork */
+  --color-stone-dark:  #2d3a4a;
+  --color-stone-mid:   #3d4e5f;
+  --color-sky-deep:    #0d1520;
+  --color-sky-mid:     #1a2535;
+
+  /* Typography — CSS variables are injected by next/font in layout.tsx */
+  --font-sans:    var(--font-inter);
+  --font-heading: var(--font-space-grotesk);
+  --font-mono:    var(--font-jetbrains-mono);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ── Base ───────────────────────────────────────────────────────────────── */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f7f3ea;
+  color: #171717;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Focus ──────────────────────────────────────────────────────────────── */
+
+:focus-visible {
+  outline: 2px solid #c6ff00;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ── Animations ─────────────────────────────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-8px) rotate(1.5deg); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0px, 0px); }
+  33%       { transform: translate(4px, -6px); }
+  66%       { transform: translate(-3px, -3px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 0.9; }
+}
+
+/* Utility classes for animations */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-drift {
+  animation: drift 10s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* ── Reduced Motion ─────────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
