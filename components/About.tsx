@@ -57,7 +57,7 @@ export default function About() {
                   Focus
                 </dt>
                 <dd className="mt-2 max-w-xs font-sans text-base leading-relaxed text-paper-cream/70">
-                  Web Development, Digital Solutions &amp; AI
+                  Web Development &amp; Digital Solutions
                 </dd>
               </div>
             </dl>

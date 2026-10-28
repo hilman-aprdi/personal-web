@@ -1,10 +1,10 @@
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://hilmanapriadi.cv";
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") || "https://hlmn.my.id";
 
-export const SITE_NAME = "The Curious Oddity";
+export const SITE_NAME = "Hilman A.";
 export const PERSON_NAME = "Hilman Apriadi";
 export const SITE_DESCRIPTION =
-  "Personal website of Hilman Apriadi. Building practical digital tools, exploring AI, and documenting the journey.";
+  "Hilman Apriadi's personal website and portfolio. Building practical digital tools and exploring web development, digital solutions, and AI.";
 
 export const SOCIAL_PROFILES = [
   { label: "LinkedIn", url: "https://www.linkedin.com/in/hilman-apriadi/" },

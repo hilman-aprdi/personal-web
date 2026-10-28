@@ -25,9 +25,9 @@ export default function Navigation() {
         <Link
           href="/"
           className="font-heading font-semibold text-void-black tracking-tight text-sm sm:text-base leading-none"
-          aria-label="The Curious Oddity — home"
+          aria-label="Hilman A. — home"
         >
-          The Curious Oddity
+          Hilman A.
         </Link>
 
         {/* Desktop links */}

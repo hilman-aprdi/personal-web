@@ -15,7 +15,7 @@ export default function Footer() {
           {/* Wordmark + editorial note */}
           <div>
             <p className="font-heading font-semibold text-void-black text-sm tracking-tight mb-1">
-              The Curious Oddity
+              Hilman A.
             </p>
             <p
               className="font-mono text-void-black/30"

@@ -32,50 +32,47 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  ...(SITE_URL ? {
-    metadataBase: new URL(SITE_URL),
-    alternates: { canonical: "/" },
-  } : {}),
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: "/" },
   title: {
-    default: `${PERSON_NAME} — ${SITE_NAME}`,
-    template: "%s — The Curious Oddity",
+    default: "Hilman Apriadi | Personal Website",
+    template: "%s | Hilman Apriadi",
   },
   description: SITE_DESCRIPTION,
-  keywords: [
-    "Hilman Apriadi",
-    "personal website",
-    "portfolio",
-    "developer",
-    "AI",
-    "digital products",
-  ],
   authors: [{ name: PERSON_NAME }],
   creator: PERSON_NAME,
   openGraph: {
     type: "website",
     locale: "en_US",
-    ...(SITE_URL ? { url: SITE_URL } : {}),
+    url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${PERSON_NAME} — ${SITE_NAME}`,
+    title: "Hilman Apriadi | Personal Website",
     description: SITE_DESCRIPTION,
     images: [
       {
         url: "/img/hilman_apriadi_profile.jpeg",
         width: 1440,
         height: 1440,
-        alt: PERSON_NAME,
+        alt: "Hilman Apriadi",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${PERSON_NAME} — ${SITE_NAME}`,
+    title: "Hilman Apriadi | Personal Website",
     description: SITE_DESCRIPTION,
     images: ["/img/hilman_apriadi_profile.jpeg"],
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -96,27 +93,25 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
 function StructuredData() {
   const person = {
     "@type": "Person",
-    "@id": SITE_URL ? `${SITE_URL}/#person` : undefined,
+    "@id": `${SITE_URL}/#person`,
     name: PERSON_NAME,
     description: SITE_DESCRIPTION,
     knowsAbout: ["Web development", "Digital products", "Artificial intelligence"],
     sameAs: SOCIAL_PROFILES.map((profile) => profile.url),
-    ...(SITE_URL ? { url: SITE_URL } : {}),
+    url: SITE_URL,
   };
 
-  const graph = SITE_URL
-    ? [
-        person,
-        {
-          "@type": "WebSite",
-          "@id": `${SITE_URL}/#website`,
-          url: SITE_URL,
-          name: SITE_NAME,
-          description: SITE_DESCRIPTION,
-          publisher: { "@id": `${SITE_URL}/#person` },
-        },
-      ]
-    : [person];
+  const graph = [
+    person,
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: SITE_URL,
+      name: SITE_NAME,
+      description: SITE_DESCRIPTION,
+      publisher: { "@id": `${SITE_URL}/#person` },
+    },
+  ];
 
   return (
     <script
