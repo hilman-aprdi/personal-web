@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     template: "%s | Hilman Apriadi",
   },
   description: SITE_DESCRIPTION,
+  verification: {
+    google: "nUvfNKio6IMOYGVD6SUq2s9DavS1usy-IxcSFalneAo",
+  },
   authors: [{ name: PERSON_NAME }],
   creator: PERSON_NAME,
   openGraph: {
